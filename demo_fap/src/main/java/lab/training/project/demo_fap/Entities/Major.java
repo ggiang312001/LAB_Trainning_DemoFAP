@@ -16,34 +16,34 @@ import jakarta.persistence.Table;
  * @author kennybk
  */
 @Entity
-@Table(name = "Role")
-public class Role {
+@Table(name = "Major")
+public class Major {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
-    private int roleId;
+    @Column(name = "major_id")
+    private int majorId;
     
-    @Column(name = "role_name")
-    private String roleName;
+    @Column(name = "major_name")
+    private String majorName;
 
-    public int getRoleId() {
-        return roleId;
+    public int getMajorId() {
+        return majorId;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setMajorId(int majorId) {
+        this.majorId = majorId;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getMajorName() {
+        return majorName;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setMajorName(String majorName) {
+        this.majorName = majorName;
     }
 
-    public Role(String roleName) {
-        this.roleName = roleName;
+    public Major(String majorName) {
+        this.majorName = majorName;
     }
     
     
