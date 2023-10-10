@@ -4,12 +4,16 @@
  */
 package lab.training.project.demo_fap.Entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
+import lombok.Data;
 
 /**
  *
@@ -17,6 +21,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "Major")
+@Data
 public class Major {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,27 +30,10 @@ public class Major {
     
     @Column(name = "major_name")
     private String majorName;
-
-    public int getMajorId() {
-        return majorId;
-    }
-
-    public void setMajorId(int majorId) {
-        this.majorId = majorId;
-    }
-
-    public String getMajorName() {
-        return majorName;
-    }
-
-    public void setMajorName(String majorName) {
-        this.majorName = majorName;
-    }
-
-    public Major(String majorName) {
-        this.majorName = majorName;
-    }
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
+    private List<Subject> subjects;
     
-    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
+    private List<User> users;
 }

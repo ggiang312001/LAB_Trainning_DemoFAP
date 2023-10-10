@@ -10,8 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
@@ -22,26 +20,20 @@ import lombok.Data;
  * @author kennybk
  */
 @Entity
-@Table(name = "Grade")
+@Table(name = "Semester")
 @Data
-public class Grade {
+public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "grade_id")
-    private int gradeId;
+    @Column(name = "semester_id")
+    private int semesterId;
     
-    @ManyToOne
-    @JoinColumn(name = "grade_category_id", referencedColumnName = "grade_category_id")
-    private GradeCategory gradeCategoryId;
+    @Column(name = "semester_code")
+    private String semesterCode;
     
-    @Column(name = "grade_name")
-    private String gradeName;
+    @Column(name = "semester_name")
+    private String semesterName;
     
-    @Column(name = "weight")
-    private float weight;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gradeId")
-    private List<StudentGrade> studentGrades;
-    
-    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "semesterId")
+    private List<Subject> subjects;
 }

@@ -16,6 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
+import lombok.Data;
 
 /**
  *
@@ -23,6 +24,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "User")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +35,15 @@ public class User {
     private String userCode;
     
     @Column(name = "user_name")
-    private String img;
+    private String userName;
     
     @Column(name = "img")
-    private LocalDate dob;
+    private String img;
     
     @Column(name = "dob")
+    private LocalDate dob;
+    
+    @Column(name = "gender")
     private boolean gender;
     
     @Column(name = "address")
@@ -46,6 +51,13 @@ public class User {
     
     @Column(name = "password")
     private String password;
+    
+    @Column(name = "email")
+    private String email;
+    
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "class_id")
+    private Class classId;
     
     @ManyToOne
     @JoinColumn(name = "major_id", referencedColumnName = "major_id")
@@ -60,89 +72,6 @@ public class User {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
     private List<Subject> subjects;
-    
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
-
-    public boolean isGender() {
-        return gender;
-    }
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Major getMajorId() {
-        return majorId;
-    }
-
-    public void setMajorId(Major majorId) {
-        this.majorId = majorId;
-    }
-
-    public Role getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Role roleId) {
-        this.roleId = roleId;
-    }
-
-    public User(String userCode, String img, LocalDate dob, boolean gender, String address, String password, Major majorId, Role roleId) {
-        this.userCode = userCode;
-        this.img = img;
-        this.dob = dob;
-        this.gender = gender;
-        this.address = address;
-        this.password = password;
-        this.majorId = majorId;
-        this.roleId = roleId;
-    }
     
     
 }
