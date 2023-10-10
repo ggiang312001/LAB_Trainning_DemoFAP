@@ -16,7 +16,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
+import java.util.Set;
+
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -65,6 +70,7 @@ public class User {
     
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+    @ToString.Exclude //add toString to ignore error stackOverFlow
     private Role roleId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId")
@@ -72,6 +78,16 @@ public class User {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
     private List<Subject> subjects;
-    
-    
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 }
