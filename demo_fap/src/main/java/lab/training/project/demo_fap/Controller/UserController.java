@@ -26,7 +26,7 @@ public class UserController {
         System.out.println("list of all users: "+listUser);
 
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/hello.jsp");
+        mv.setViewName("/user_profile.jsp");
         mv.addObject("userList", listUser);
 
         return mv;

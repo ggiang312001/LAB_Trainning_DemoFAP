@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>JSP Page</title>
+        <title>User profile</title>
         <style>
                     table {
                         border-collapse: collapse;
@@ -34,12 +34,23 @@
                         <th>user id</th>
                         <th>user code</th>
                         <th>user name</th>
+                        <th>img</th>
+                        <th>date of birth</th>
+                        <th>gender</th>
+                        <th>address</th>
+                        <th>email</th>
+
                     </tr>
                     <c:forEach items="${userList}" var="user">
                         <tr>
                             <td>${user.getUserId()}</td>
                             <td>${user.getUserCode()}</td>
                             <td>${user.getUserName()}</td>
+                            <td>${user.getImg()}</td>
+                            <td>${user.getDob()}</td>
+                            <td>${user.isGender()}</td>
+                            <td>${user.getAddress()}</td>
+                            <td>${user.getEmail()}</td>
                         </tr>
                     </c:forEach>
                 </table>

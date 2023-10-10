@@ -90,4 +90,28 @@ public class User {
     public String getUserName() {
         return userName;
     }
+
+    public String getImg() {
+        return img;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
