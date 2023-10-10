@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
+import lombok.Data;
 
 /**
  *
@@ -20,6 +21,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "GradeCategory")
+@Data
 public class GradeCategory {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,25 +34,5 @@ public class GradeCategory {
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gradeCategoryId")
    private List<Grade> grades;
 
-    public int getGradeCategoryId() {
-        return gradeCategoryId;
-    }
-
-    public void setGradeCategoryId(int gradeCategoryId) {
-        this.gradeCategoryId = gradeCategoryId;
-    }
-
-    public String getGradeName() {
-        return gradeName;
-    }
-
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
-    }
-
-    public GradeCategory(String gradeName) {
-        this.gradeName = gradeName;
-    }
-   
-   
+    
 }
