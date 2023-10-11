@@ -80,7 +80,11 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
     private List<Subject> subjects;
 
-//    public int getUserId() {
+    public Major getMajorId() {
+        return majorId;
+    }
+
+    //    public int getUserId() {
 //        return userId;
 //    }
 //

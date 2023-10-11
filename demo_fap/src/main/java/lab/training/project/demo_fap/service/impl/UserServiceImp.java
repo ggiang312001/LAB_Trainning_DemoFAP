@@ -15,4 +15,9 @@ public class UserServiceImp implements UserService {
     public Iterable<User> getAllUser() {
         return userRepository.findAll();
     }
+
+    @Override
+    public User findByUserId(int userId) {
+        return userRepository.findByUserId(userId);
+    }
 }

@@ -61,7 +61,6 @@ public class Subject {
         this.subjectId = subjectId;
     }
 
-
     public User getTeacherId() {
         return teacherId;
     }

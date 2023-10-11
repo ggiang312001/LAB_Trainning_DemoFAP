@@ -28,6 +28,12 @@
     </head>
     <body>
         <h1>FAP</h1>
+
+        <h3>Semester: </h3>
+        <c:forEach items="${listSemester}" var="semester">
+            <a href="#">${semester.semesterName}</a>
+        </c:forEach>
+
         <h1>Subject: </h1>
                 <table>
                     <tr>
