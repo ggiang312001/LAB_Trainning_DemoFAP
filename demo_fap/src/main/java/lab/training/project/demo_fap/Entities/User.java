@@ -34,8 +34,8 @@ public class User {
     @Column(name = "user_code")
     private String userCode;
     
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "username")
+    private String username;
     
     @Column(name = "img")
     private String img;
