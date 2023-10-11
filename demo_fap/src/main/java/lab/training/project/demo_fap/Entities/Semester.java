@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
@@ -35,5 +36,38 @@ public class Semester {
     private String semesterName;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "semesterId")
+    @ToString.Exclude //add toString to ignore error stackOverFlow
     private List<Subject> subjects;
+
+    public int getSemesterId() {
+        return semesterId;
+    }
+
+    public void setSemesterId(int semesterId) {
+        this.semesterId = semesterId;
+    }
+
+    public String getSemesterCode() {
+        return semesterCode;
+    }
+
+    public void setSemesterCode(String semesterCode) {
+        this.semesterCode = semesterCode;
+    }
+
+    public String getSemesterName() {
+        return semesterName;
+    }
+
+    public void setSemesterName(String semesterName) {
+        this.semesterName = semesterName;
+    }
+
+    public List<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
+    }
 }

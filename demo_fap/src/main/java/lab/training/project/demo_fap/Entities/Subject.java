@@ -16,6 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
@@ -32,6 +33,7 @@ public class Subject {
     
     @ManyToOne
     @JoinColumn(name = "teacher_id", referencedColumnName = "user_id")
+    @ToString.Exclude //add toString to ignore error stackOverFlow
     private User teacherId;
     
     @ManyToOne
@@ -50,4 +52,60 @@ public class Subject {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "subjectId")
     private List<StudentGrade> studentGrades;
+
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(int subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public User getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(User teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Major getMajorId() {
+        return majorId;
+    }
+
+    public void setMajorId(Major majorId) {
+        this.majorId = majorId;
+    }
+
+    public Semester getSemesterId() {
+        return semesterId;
+    }
+
+    public void setSemesterId(Semester semesterId) {
+        this.semesterId = semesterId;
+    }
+
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
+    public List<StudentGrade> getStudentGrades() {
+        return studentGrades;
+    }
+
+    public void setStudentGrades(List<StudentGrade> studentGrades) {
+        this.studentGrades = studentGrades;
+    }
 }

@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>User profile</title>
+        <title>Subject</title>
         <style>
                     table {
                         border-collapse: collapse;
@@ -28,7 +28,7 @@
     </head>
     <body>
         <h1>FAP</h1>
-
+        <h1>Subject: </h1>
                 <table>
                     <tr>
                         <th>user code</th>

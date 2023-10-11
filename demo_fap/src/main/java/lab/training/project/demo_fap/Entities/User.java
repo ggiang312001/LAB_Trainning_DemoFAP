@@ -34,6 +34,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
+    @ToString.Exclude //add toString to ignore error stackOverFlow
     private int userId;
     
     @Column(name = "user_code")
@@ -70,7 +71,7 @@ public class User {
     
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
-    @ToString.Exclude //add toString to ignore error stackOverFlow
+//    @ToString.Exclude //add toString to ignore error stackOverFlow
     private Role roleId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId")
@@ -79,39 +80,39 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
     private List<Subject> subjects;
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public boolean isGender() {
-        return gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public String getUserCode() {
+//        return userCode;
+//    }
+//
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public String getImg() {
+//        return img;
+//    }
+//
+//    public LocalDate getDob() {
+//        return dob;
+//    }
+//
+//    public boolean isGender() {
+//        return gender;
+//    }
+//
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
 }

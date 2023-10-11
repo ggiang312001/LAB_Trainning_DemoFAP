@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
@@ -32,5 +33,6 @@ public class Role {
     private String roleName;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleId")
+    @ToString.Exclude //add toString to ignore error stackOverFlow
     private List<User> users;
 }

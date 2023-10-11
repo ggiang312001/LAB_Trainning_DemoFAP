@@ -1,5 +1,6 @@
 package lab.training.project.demo_fap.controller;
 
+import lab.training.project.demo_fap.Entities.Role;
 import lab.training.project.demo_fap.Entities.User;
 import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class UserController {
         Iterable<User> listUser;
         listUser = userService.getAllUser();
 
-        System.out.println("list of all users: "+listUser);
+        //test
+//        System.out.println("list of all users: "+listUser);
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/view/user_profile.jsp");
