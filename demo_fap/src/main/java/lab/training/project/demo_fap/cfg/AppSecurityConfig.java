@@ -44,6 +44,8 @@ public class AppSecurityConfig {
                         .requestMatchers(antMatcher("/admin/**")).hasRole("TEACHER")
                         .requestMatchers(antMatcher("/student/**")).hasRole("STUDENT")
                         .requestMatchers(antMatcher("/hello")).authenticated()
+                        .requestMatchers(antMatcher("/user/profile")).authenticated()
+                        .requestMatchers(antMatcher("/subject/view")).authenticated()
                         .anyRequest().permitAll()
                 )
                 .formLogin(formLogin -> {

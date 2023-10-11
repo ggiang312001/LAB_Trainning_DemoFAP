@@ -74,7 +74,7 @@
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150px"
                         src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                        <span class="font-weight-bold">${user.userName}</span>
+                        <span class="font-weight-bold">${user.username}</span>
                         <span class="text-black-50">${user.email}</span>
                         <span> </span>
                 </div>
@@ -89,7 +89,7 @@
                                 placeholder="user code" value="${user.userCode}" disabled></div>
 
                         <div class="col-md-6"><label class="labels">User Name</label><input type="text"
-                                class="form-control" value="${user.userName}" placeholder="user name" disabled></div>
+                                class="form-control" value="${user.username}" placeholder="user name" disabled></div>
                     </div>
 
                     <div class="row mt-3">

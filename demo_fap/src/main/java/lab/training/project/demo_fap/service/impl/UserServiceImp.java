@@ -16,8 +16,5 @@ public class UserServiceImp implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public User findByUserId(int userId) {
-        return userRepository.findByUserId(userId);
-    }
+
 }

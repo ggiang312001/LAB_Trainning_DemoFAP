@@ -4,10 +4,12 @@ import lab.training.project.demo_fap.Entities.Major;
 import lab.training.project.demo_fap.Entities.Semester;
 import lab.training.project.demo_fap.Entities.Subject;
 import lab.training.project.demo_fap.Entities.User;
+import lab.training.project.demo_fap.impl.UserDetailsImpl;
 import lab.training.project.demo_fap.service.SemesterService;
 import lab.training.project.demo_fap.service.SubjectService;
 import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +35,8 @@ public class SubjectController {
     public ModelAndView viewProfile(@PathVariable int semester_id){
 
         //get user by userId
-        User user = userService.findByUserId(1);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = ((UserDetailsImpl)principal).getUser();
 
         //get user's majorId
         Major major = user.getMajorId();

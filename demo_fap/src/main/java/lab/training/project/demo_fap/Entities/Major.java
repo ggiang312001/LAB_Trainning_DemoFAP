@@ -32,7 +32,7 @@ public class Major {
     @Column(name = "major_name")
     private String majorName;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId") //????
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
     @ToString.Exclude //add toString to ignore error stackOverFlow
     private List<Subject> subjects;
     
