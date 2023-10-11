@@ -1,4 +1,4 @@
-package lab.training.project.demo_fap.Repositories;
+package lab.training.project.demo_fap.repository;
 
 import lab.training.project.demo_fap.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;

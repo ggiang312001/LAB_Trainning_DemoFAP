@@ -1,8 +1,8 @@
-package lab.training.project.demo_fap.Services.Imp;
+package lab.training.project.demo_fap.service.impl;
 
 import lab.training.project.demo_fap.Entities.User;
-import lab.training.project.demo_fap.Repositories.UserRepository;
-import lab.training.project.demo_fap.Services.UserService;
+import lab.training.project.demo_fap.repository.UserRepository;
+import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

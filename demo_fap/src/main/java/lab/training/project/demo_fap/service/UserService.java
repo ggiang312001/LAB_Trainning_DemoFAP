@@ -1,7 +1,6 @@
-package lab.training.project.demo_fap.Services;
+package lab.training.project.demo_fap.service;
 
 import lab.training.project.demo_fap.Entities.User;
-import org.springframework.stereotype.Service;
 
 
 public interface UserService {
