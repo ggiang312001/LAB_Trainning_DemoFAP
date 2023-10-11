@@ -9,6 +9,7 @@ import lab.training.project.demo_fap.service.SubjectService;
 import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,8 +29,8 @@ public class SubjectController {
     @Autowired
     SemesterService semesterService;
 
-    @GetMapping("/view")
-    public ModelAndView viewProfile(){
+    @GetMapping("/view/{semester_id}")
+    public ModelAndView viewProfile(@PathVariable int semester_id){
 
         //get user by userId
         User user = userService.findByUserId(1);
@@ -43,17 +44,27 @@ public class SubjectController {
         //set default semester
         Semester semester = new Semester();
 
-        //create a list of semester
-        List<Semester> semesterList = new ArrayList<>();
+        //test path semester_id
+        System.out.println("PATH SEMESTER_ID: "+semester_id);
 
-        //change iterable of semester to list
-        for (Semester semes : listSemester) {
-            semesterList.add(semes);
+        //check if semester_id equal 0 -> set default semesterId
+        if(semester_id == 0){
+            //create a list of semester
+            List<Semester> semesterList = new ArrayList<>();
+
+            //change iterable of semester to list
+            for (Semester semes : listSemester) {
+                semesterList.add(semes);
+            }
+
+            //get first semester
+            if (!semesterList.isEmpty()) {
+                semester = semesterList.get(0);
+            }
         }
-
-        //get first semester
-        if (!semesterList.isEmpty()) {
-            semester = semesterList.get(0);
+        //else -> set semester by path semester_id
+        else {
+            semester.setSemesterId(semester_id);
         }
 
         //show user's subject by their majorId and current semester

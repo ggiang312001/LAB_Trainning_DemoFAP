@@ -29,7 +29,7 @@
     <body>
         <h1>FAP</h1>
 
-                <table>
+        <table>
                     <tr>
                         <th>user code</th>
                         <th>user name</th>
@@ -53,6 +53,9 @@
                             <td>${user.roleId.roleName}</td>
                         </tr>
                     </c:forEach>
-                </table>
+        </table>
+
+        
+
     </body>
 </html>

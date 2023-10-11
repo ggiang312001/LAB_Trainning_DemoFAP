@@ -31,24 +31,24 @@
 
         <h3>Semester: </h3>
         <c:forEach items="${listSemester}" var="semester">
-            <a href="#">${semester.semesterName}</a>
+            <a href="http://localhost:8080/fap/subject/view/${semester.semesterId}">${semester.semesterName}</a>
+            <br>
         </c:forEach>
 
         <h1>Subject: </h1>
                 <table>
                     <tr>
-                        <th>major</th>
-                        <th>semester</th>
                         <th>subject code</th>
                         <th>subject name</th>
-
+                        <th>major</th>
+                        <th>semester</th>
                     </tr>
                     <c:forEach items="${listSubject}" var="subject">
                         <tr>
-                            <td>${subject.majorId.majorName}</td>
-                            <td>${subject.semesterId.semesterName}</td>
                             <td>${subject.subjectCode}</td>
                             <td>${subject.subjectName}</td>
+                            <td>${subject.majorId.majorName}</td>
+                            <td>${subject.semesterId.semesterName}</td>
                         </tr>
                     </c:forEach>
                 </table>
