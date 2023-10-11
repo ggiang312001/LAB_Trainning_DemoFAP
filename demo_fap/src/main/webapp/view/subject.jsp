@@ -31,26 +31,18 @@
         <h1>Subject: </h1>
                 <table>
                     <tr>
-                        <th>user code</th>
-                        <th>user name</th>
-                        <th>img</th>
-                        <th>date of birth</th>
-                        <th>gender</th>
-                        <th>address</th>
-                        <th>email</th>
-                        <th>role</th>
+                        <th>major</th>
+                        <th>semester</th>
+                        <th>subject code</th>
+                        <th>subject name</th>
 
                     </tr>
-                    <c:forEach items="${userList}" var="user">
+                    <c:forEach items="${listSubject}" var="subject">
                         <tr>
-                            <td>${user.userCode}</td>
-                            <td>${user.userName}</td>
-                            <td>${user.img}</td>
-                            <td>${user.dob}</td>
-                            <td>${user.gender}</td>
-                            <td>${user.address}</td>
-                            <td>${user.email}</td>
-                            <td>${user.roleId.roleName}</td>
+                            <td>${subject.majorId.majorName}</td>
+                            <td>${subject.semesterId.semesterName}</td>
+                            <td>${subject.subjectCode}</td>
+                            <td>${subject.subjectName}</td>
                         </tr>
                     </c:forEach>
                 </table>

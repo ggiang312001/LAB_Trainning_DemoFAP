@@ -26,16 +26,18 @@ public class SubjectController {
         major.setMajorId(11);
 
 
+        //get subject with semesterId = 1 adn majorId = 11
         Iterable<Subject> listSubject;
         listSubject = subjectService.findBySemesterIdAndMajorId(semester, major);
 
-        //test
+        //test listSubject
         System.out.println("list of all subject: "+listSubject);
 
+        //model view
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/view/subject.jsp");
-//        mv.addObject("listSubject", listSubject);
 
+        mv.addObject("listSubject", listSubject);
         return mv;
     }
 }
