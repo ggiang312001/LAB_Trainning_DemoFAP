@@ -14,6 +14,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
         <title>Class</title>
         <style>
                     table {
@@ -27,12 +30,12 @@
                 </style>
     </head>
     <body>
+
+    <jsp:include page="bar.jsp" />
+
         <h1>FAP</h1>
 
         <h3>Class member: </h3>
-
-
-        <h1>Subject: </h1>
                 <table>
                                     <tr>
                                         <th>img</th>
