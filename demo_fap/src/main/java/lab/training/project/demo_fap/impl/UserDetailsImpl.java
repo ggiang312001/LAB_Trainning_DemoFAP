@@ -5,8 +5,10 @@
 package lab.training.project.demo_fap.impl;
 
 import java.util.Collection;
+import java.util.Collections;
 import lab.training.project.demo_fap.Entities.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -24,7 +26,7 @@ public class UserDetailsImpl implements UserDetails {
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singleton(new SimpleGrantedAuthority(user.getRoleId().getRoleName()));
     }
 
     @Override

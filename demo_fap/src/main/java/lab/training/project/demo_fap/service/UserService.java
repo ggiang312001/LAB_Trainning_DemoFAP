@@ -4,10 +4,12 @@
  */
 package lab.training.project.demo_fap.service;
 
+import lab.training.project.demo_fap.Entities.User;
+
 /**
  *
  * @author kennybk
  */
-public class UserService {
-    
+public interface UserService {
+    void saveUser(User user);
 }

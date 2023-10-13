@@ -43,14 +43,16 @@ public class AppSecurityConfig {
                         -> auth
                         .requestMatchers(antMatcher("/admin/**")).hasRole("TEACHER")
                         .requestMatchers(antMatcher("/student/**")).hasRole("STUDENT")
-                        .requestMatchers(antMatcher("/hello")).authenticated()
+                        .requestMatchers(antMatcher("/hello")).hasRole("STUDENT")
                         .anyRequest().permitAll()
                 )
                 .formLogin(formLogin -> {
                     formLogin.loginPage("/login").permitAll()
                             .loginProcessingUrl("/login")
-                            .failureUrl("/login?error=true");
-                });
+                            .failureUrl("/login?error=true");})
+                .logout()
+                .logoutSuccessUrl("/login")
+                ;
 
         return httpSecurity.build();
     }
