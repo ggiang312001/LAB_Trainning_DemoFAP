@@ -18,26 +18,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <title>Class</title>
-        <style>
-                    table {
-                        border-collapse: collapse;
-                    }
-                    td, th {
-                        width: 10%;
-                        border: 1px solid black;
 
-                    }
-                </style>
     </head>
     <body>
 
     <jsp:include page="bar.jsp" />
 
-        <h1>FAP</h1>
-
         <h3>Class member: </h3>
-                <table>
-                                    <tr>
+                <table class="table table-borderless table-hover table-border">
+                                    <tr class="table-secondary">
                                         <th>img</th>
                                         <th>student code</th>
                                         <th>student name</th>
@@ -51,7 +40,7 @@
                                     <c:forEach items="${classMember}" var="member">
                                         <tr>
                                             <td>
-                                                <img width="100px" src="${member.img}">
+                                                <img width="80px" src="${member.img}">
                                             </td>
                                             <td>${member.userCode}</td>
                                             <td>${member.username}</td>
