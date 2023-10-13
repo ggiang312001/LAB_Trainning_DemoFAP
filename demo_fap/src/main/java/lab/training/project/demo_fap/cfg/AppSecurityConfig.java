@@ -40,19 +40,19 @@ public class AppSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth
-                        -> auth
-                        .requestMatchers(antMatcher("/admin/**")).hasRole("TEACHER")
-                        .requestMatchers(antMatcher("/student/**")).hasRole("STUDENT")
-                        .requestMatchers(antMatcher("/hello")).authenticated()
+                        -> auth                       
                         .requestMatchers(antMatcher("/user/profile")).authenticated()
                         .requestMatchers(antMatcher("/subject/view")).authenticated()
+                        .requestMatchers(antMatcher("/hello")).hasRole("STUDENT")
                         .anyRequest().permitAll()
                 )
                 .formLogin(formLogin -> {
                     formLogin.loginPage("/login").permitAll()
                             .loginProcessingUrl("/login")
-                            .failureUrl("/login?error=true");
-                });
+                            .failureUrl("/login?error=true");})
+                .logout()
+                .logoutSuccessUrl("/login")
+                ;
 
         return httpSecurity.build();
     }

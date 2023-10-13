@@ -8,4 +8,6 @@ public interface UserService {
     Iterable<User> getAllUser();
 
     Iterable<User> getUserByClassId(Class classId);
+
+    void saveUser(User user);
 }
