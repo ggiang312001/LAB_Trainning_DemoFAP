@@ -91,15 +91,13 @@
                 background-color: #cccccc;
                 color: #666666;
             }
-
-
         </style>
 
     </head>
     <body>
         <div class="mainDiv">
             <div class="cardStyle">
-                <form action="/demofap/changepassword" method="post" name="signupForm" id="signupForm">
+                <form action="/fap/changepassword" method="post" name="signupForm" id="signupForm">
 
                     <img src="" id="signupLogo"/>
 

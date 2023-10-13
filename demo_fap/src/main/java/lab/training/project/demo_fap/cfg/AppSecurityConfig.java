@@ -49,6 +49,7 @@ public class AppSecurityConfig {
                 .formLogin(formLogin -> {
                     formLogin.loginPage("/login").permitAll()
                             .loginProcessingUrl("/login")
+                            .defaultSuccessUrl("/hello")
                             .failureUrl("/login?error=true");})
                 .logout()
                 .logoutSuccessUrl("/login")

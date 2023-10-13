@@ -27,7 +27,7 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/login")
+    @RequestMapping(value = {"/login", "/"})
     public ModelAndView login(@RequestParam(required = false) String error) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/login.jsp");

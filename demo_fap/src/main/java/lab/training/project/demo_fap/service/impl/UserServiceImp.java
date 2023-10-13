@@ -23,5 +23,10 @@ public class UserServiceImp implements UserService {
         return userRepository.findByClassId(classId);
     }
 
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
 
 }

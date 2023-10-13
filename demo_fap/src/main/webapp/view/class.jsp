@@ -25,8 +25,7 @@
     <jsp:include page="bar.jsp" />
     <div class="container">
         <div class="mt-4 p-5 bg-secondary text-white rounded">
-          <h1>Class member</h1>
-
+            <h1>Class member</h1>
         </div>
 
         <div class="col-bg-11 p-5 text-white">
