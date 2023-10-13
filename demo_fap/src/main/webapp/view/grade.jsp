@@ -29,7 +29,7 @@
     <body>
         <h1>FAP</h1>
 
-        <h3>Class member: </h3>
+        <h3>Grade: </h3>
 
 
         <h1>Subject: </h1>

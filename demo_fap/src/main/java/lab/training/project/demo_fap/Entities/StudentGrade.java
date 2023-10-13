@@ -45,4 +45,7 @@ public class StudentGrade {
    @ManyToOne
    @JoinColumn(name = "subject_id", referencedColumnName = "subject_id")
    private Subject subjectId;
+
+
+
 }

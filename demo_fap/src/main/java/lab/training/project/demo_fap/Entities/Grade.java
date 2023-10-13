@@ -15,7 +15,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-import lombok.Data;
+
+import lombok.*;
 
 /**
  *
@@ -23,7 +24,11 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "Grade")
-@Data
+//@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

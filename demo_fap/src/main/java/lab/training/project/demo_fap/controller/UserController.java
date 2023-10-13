@@ -2,8 +2,10 @@ package lab.training.project.demo_fap.controller;
 
 import lab.training.project.demo_fap.Entities.Class;
 import lab.training.project.demo_fap.Entities.Role;
+import lab.training.project.demo_fap.Entities.StudentGrade;
 import lab.training.project.demo_fap.Entities.User;
 import lab.training.project.demo_fap.impl.UserDetailsImpl;
+import lab.training.project.demo_fap.service.StudentGradeService;
 import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,6 +18,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    StudentGradeService studentGradeService;
 
     @GetMapping("/profile")
     public ModelAndView viewProfile(){
@@ -57,6 +62,28 @@ public class UserController {
         mv.setViewName("/view/class.jsp");
 
         mv.addObject("classMember", classMember);
+
+        return mv;
+    }
+
+    @GetMapping("/grade")
+    public ModelAndView viewGrade(){
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = ((UserDetailsImpl)principal).getUser();
+
+        ModelAndView mv = new ModelAndView();
+
+        //get studentGradeId object
+        Iterable<StudentGrade> studentGrade = studentGradeService.getAllStudentGrade(user);
+
+
+        //test get studentGrade object
+        System.out.println("CLASS ID : "+studentGrade);
+
+        mv.setViewName("/view/grade.jsp");
+
+        mv.addObject("studentGrade", studentGrade);
 
         return mv;
     }
