@@ -23,10 +23,14 @@
     <body>
 
     <jsp:include page="bar.jsp" />
+    <div class="container">
+        <div class="mt-4 p-5 bg-secondary text-white rounded">
+          <h1>Class member</h1>
 
-        <h3>Class member: </h3>
-        <div class="col-bg-11 text-white container-fluid">
-                <table class="table table-borderless table-hover table-border ">
+        </div>
+
+        <div class="col-bg-11 p-5 text-white">
+                <table class="table table-borderless table-hover table-striped ">
                                     <tr class="table-secondary">
                                         <th>img</th>
                                         <th>student code</th>
@@ -41,7 +45,7 @@
                                     <c:forEach items="${classMember}" var="member">
                                         <tr>
                                             <td>
-                                                <img width="80px" src="${member.img}">
+                                                <img class="rounded-circle" width="80px" src="${member.img}">
                                             </td>
                                             <td>${member.userCode}</td>
                                             <td>${member.username}</td>
@@ -54,5 +58,6 @@
                                     </c:forEach>
                         </table>
         </div>
+    </div>
     </body>
 </html>

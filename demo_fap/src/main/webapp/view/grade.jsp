@@ -22,42 +22,42 @@
     </head>
     <body>
 
-    <jsp:include page="bar.jsp" />
-        <h1>FAP</h1>
+        <jsp:include page="bar.jsp" />
+
+        <div class="container">
+            <div class="mt-4 p-5 bg-secondary text-white rounded">
+                        <h1>Subject</h1>
+            </div>
+            <div class="btn-group p-2">
+                <c:forEach items="${listSubject}" var="subject">
+                            <a class="btn btn-secondary h4" href="<c:url value='/user/grade/${subject.subjectId}'/>">${subject.subjectName}</a>
+
+                </c:forEach>
+            </div>
+            <br>
 
 
-        <br>
-        <h1>Subject: </h1>
-        <ul class="nav justify-content-left">
-            <c:forEach items="${listSubject}" var="subject">
-                    <li class="nav-item">
-                        <a class="nav-link h4" href="<c:url value='/user/grade/${subject.subjectId}'/>">${subject.subjectName}</a>
+            <div class="col-bg-11 p-1 text-white container-fluid">
+                    <table class="table table-borderless table-hover table-border">
+                                        <tr class="table-secondary">
+                                            <th>grade category</th>
+                                            <th>grade name</th>
+                                            <th>weight</th>
+                                            <th>Value</th>
+                                            <th>subjectName</th>
 
-                    </li>
-            </c:forEach>
-        </ul>
-
-        <h3>Grade of subject : </h3>
-        <div class="col-bg-11 text-white container-fluid">
-                <table class="table table-borderless table-hover table-border">
-                                    <tr class="table-secondary">
-                                        <th>grade category</th>
-                                        <th>grade name</th>
-                                        <th>weight</th>
-                                        <th>Value</th>
-                                        <th>subjectName</th>
-
-                                    </tr>
-                                    <c:forEach items="${studentGrade}" var="grade">
-                                        <tr>
-                                            <td>${grade.gradeId.gradeCategoryId.gradeName}</td>
-                                            <td>${grade.gradeId.gradeName}</td>
-                                            <td>${grade.gradeId.weight}</td>
-                                            <td>${grade.value}</td>
-                                            <td>${grade.subjectId.subjectName}</td>
                                         </tr>
-                                    </c:forEach>
-                </table>
+                                        <c:forEach items="${studentGrade}" var="grade">
+                                            <tr>
+                                                <td>${grade.gradeId.gradeCategoryId.gradeName}</td>
+                                                <td>${grade.gradeId.gradeName}</td>
+                                                <td>${grade.gradeId.weight}</td>
+                                                <td>${grade.value}</td>
+                                                <td>${grade.subjectId.subjectName}</td>
+                                            </tr>
+                                        </c:forEach>
+                    </table>
+            </div>
         </div>
     </body>
 </html>

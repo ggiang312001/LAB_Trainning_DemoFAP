@@ -24,21 +24,21 @@
 
     <jsp:include page="bar.jsp" />
 
-        <h1>FAP</h1>
+    <div class="container">
 
-        <h3>Semester: </h3>
+        <div class="mt-4 p-5 bg-secondary text-white rounded">
+            <h1>Subject</h1>
+        </div>
+
+        <div class="btn-group p-2">
+                        <c:forEach items="${listSemester}" var="semester">
+                                    <a class="btn btn-secondary h4" href="<c:url value='/subject/view/${semester.semesterId}'/>">${semester.semesterName}</a>
+
+                        </c:forEach>
+        </div>
 
 
-        <ul class="nav justify-content-left">
-                    <c:forEach items="${listSemester}" var="semester">
-                            <li class="nav-item">
-                                <a class="nav-link h4" href="<c:url value='/subject/view/${semester.semesterId}'/>">${semester.semesterName}</a>
-                            </li>
-                    </c:forEach>
-        </ul>
-
-        <h1>Subject: </h1>
-        <div class="col-bg-11 text-white container-fluid">
+        <div class="col-bg-11 p-1 text-white container-fluid">
                 <table class="table table-borderless table-hover table-border">
                     <tr class="table-secondary">
                         <th>subject code</th>
@@ -56,5 +56,6 @@
                     </c:forEach>
                 </table>
         </div>
+    </div>
     </body>
 </html>
