@@ -25,7 +25,8 @@
     <jsp:include page="bar.jsp" />
 
         <h3>Class member: </h3>
-                <table class="table table-borderless table-hover table-border">
+        <div class="col-bg-11 text-white container-fluid">
+                <table class="table table-borderless table-hover table-border ">
                                     <tr class="table-secondary">
                                         <th>img</th>
                                         <th>student code</th>
@@ -52,5 +53,6 @@
                                         </tr>
                                     </c:forEach>
                         </table>
+        </div>
     </body>
 </html>

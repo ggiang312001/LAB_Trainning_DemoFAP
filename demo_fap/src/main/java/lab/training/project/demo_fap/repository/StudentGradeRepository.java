@@ -11,6 +11,9 @@ import org.springframework.stereotype.Repository;
 public interface StudentGradeRepository extends JpaRepository<StudentGrade, Integer> {
     public Iterable<StudentGrade> findByStudentId(User userId);
 
-//    @Query(value = "SELECT * FROM `student_grade` WHERE 1 AND `subject_id` = ?1")
+//    @Query(value = "SELECT * FROM StudentGrade WHERE 1 AND subjectId.subjectId = ?1")
     public  Iterable<StudentGrade> findBySubjectId(Subject subjectId);
+
+//    @Query(value = "SELECT * FROM StudentGrade WHERE 1 AND subjectId.subjectId = ?1")
+//    public  Iterable<StudentGrade> findBySubject(int subjectId);
 }

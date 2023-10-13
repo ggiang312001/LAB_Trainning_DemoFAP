@@ -18,16 +18,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <title>Class</title>
-        <style>
-                    table {
-                        border-collapse: collapse;
-                    }
-                    td, th {
-                        width: 10%;
-                        border: 1px solid black;
 
-                    }
-                </style>
     </head>
     <body>
 
@@ -37,22 +28,23 @@
 
         <br>
         <h1>Subject: </h1>
+        <ul class="nav justify-content-left">
+            <c:forEach items="${listSubject}" var="subject">
+                    <li class="nav-item">
+                        <a class="nav-link h4" href="<c:url value='/user/grade/${subject.subjectId}'/>">${subject.subjectName}</a>
 
-        <c:forEach items="${listSubject}" var="subject">
-            <li>
-                <a href="http://localhost:8080/fap/user/grade/${subject.subjectId}">${subject.subjectName}</a>
-            </li>
-        </c:forEach>
-
+                    </li>
+            </c:forEach>
+        </ul>
 
         <h3>Grade of subject : </h3>
-                <table>
-                                    <tr>
+        <div class="col-bg-11 text-white container-fluid">
+                <table class="table table-borderless table-hover table-border">
+                                    <tr class="table-secondary">
                                         <th>grade category</th>
                                         <th>grade name</th>
                                         <th>weight</th>
                                         <th>Value</th>
-
                                         <th>subjectName</th>
 
                                     </tr>
@@ -62,10 +54,10 @@
                                             <td>${grade.gradeId.gradeName}</td>
                                             <td>${grade.gradeId.weight}</td>
                                             <td>${grade.value}</td>
-
                                             <td>${grade.subjectId.subjectName}</td>
                                         </tr>
                                     </c:forEach>
-                        </table>
+                </table>
+        </div>
     </body>
 </html>

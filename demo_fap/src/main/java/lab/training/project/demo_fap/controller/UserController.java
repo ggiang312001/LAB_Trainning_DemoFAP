@@ -28,9 +28,10 @@ public class UserController {
     @Autowired
     SubjectService subjectService;
 
+
+
     @GetMapping("/profile")
     public ModelAndView viewProfile(){
-
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
 
@@ -46,13 +47,11 @@ public class UserController {
 
     @GetMapping("/class")
     public ModelAndView viewClass(){
-
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
 
         ModelAndView mv = new ModelAndView();
 //        mv.setViewName("/view/user_profile.jsp");
-
 
         //get classId object
         Class classId = user.getClassId();
@@ -74,7 +73,6 @@ public class UserController {
 
     @GetMapping("/grade/{subject_id}")
     public ModelAndView viewGrade(@PathVariable int subject_id){
-
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
 
@@ -89,7 +87,6 @@ public class UserController {
         Optional<Subject> optionalSubject = subjectService.getBySubjectId(subject_id);
 
         Subject subject = optionalSubject.orElse(null); // Lấy giá trị bên trong Optional hoặc trả về null nếu Optional rỗng
-//        Subject subject = optionalSubject.get();
 
         //get studentGradeId object
         Iterable<StudentGrade> studentGrade = studentGradeService.findBySubjectId(subject);
