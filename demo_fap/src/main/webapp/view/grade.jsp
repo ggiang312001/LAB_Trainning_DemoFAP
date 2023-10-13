@@ -29,34 +29,36 @@
     <body>
         <h1>FAP</h1>
 
-        <h3>Grade: </h3>
 
-
+        <br>
         <h1>Subject: </h1>
+
+        <c:forEach items="${listSubject}" var="subject">
+            <li>
+                <a href="http://localhost:8080/fap/user/grade/${subject.subjectId}">${subject.subjectName}</a>
+            </li>
+        </c:forEach>
+
+
+        <h3>Grade of subject : </h3>
                 <table>
                                     <tr>
-                                        <th>img</th>
-                                        <th>student code</th>
-                                        <th>student name</th>
-                                        <th>date of birth</th>
-                                        <th>gender</th>
-                                        <th>address</th>
-                                        <th>email</th>
-                                        <th>class</th>
+                                        <th>grade category</th>
+                                        <th>grade name</th>
+                                        <th>weight</th>
+                                        <th>Value</th>
+
+                                        <th>subjectName</th>
 
                                     </tr>
-                                    <c:forEach items="${classMember}" var="member">
+                                    <c:forEach items="${studentGrade}" var="grade">
                                         <tr>
-                                            <td>
-                                                <img width="100px" src="${member.img}">
-                                            </td>
-                                            <td>${member.userCode}</td>
-                                            <td>${member.username}</td>
-                                            <td>${member.dob}</td>
-                                            <td>${member.gender}</td>
-                                            <td>${member.address}</td>
-                                            <td>${member.email}</td>
-                                            <td>${member.classId.className}</td>
+                                            <td>${grade.gradeId.gradeCategoryId.gradeName}</td>
+                                            <td>${grade.gradeId.gradeName}</td>
+                                            <td>${grade.gradeId.weight}</td>
+                                            <td>${grade.value}</td>
+
+                                            <td>${grade.subjectId.subjectName}</td>
                                         </tr>
                                     </c:forEach>
                         </table>

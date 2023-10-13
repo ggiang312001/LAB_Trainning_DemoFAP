@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SubjectRepository extends JpaRepository<Subject, Integer> {
-    Iterable<Subject> findBySemesterIdAndMajorId(Semester semesterId, Major majorId);
+    public Iterable<Subject> findBySemesterIdAndMajorId(Semester semesterId, Major majorId);
+
+    public Iterable<Subject> findByMajorId(Major majorId);
 }

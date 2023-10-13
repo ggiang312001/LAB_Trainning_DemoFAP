@@ -1,6 +1,7 @@
 package lab.training.project.demo_fap.service.impl;
 
 import lab.training.project.demo_fap.Entities.StudentGrade;
+import lab.training.project.demo_fap.Entities.Subject;
 import lab.training.project.demo_fap.Entities.User;
 import lab.training.project.demo_fap.repository.StudentGradeRepository;
 import lab.training.project.demo_fap.service.StudentGradeService;
@@ -16,5 +17,10 @@ public class StudentGradeServiceImp implements StudentGradeService {
     @Override
     public Iterable<StudentGrade> getAllStudentGrade(User user) {
         return studentGradeRepository.findByStudentId(user);
+    }
+
+    @Override
+    public Iterable<StudentGrade> findBySubjectId(Subject subjectId) {
+        return studentGradeRepository.findBySubjectId(subjectId);
     }
 }

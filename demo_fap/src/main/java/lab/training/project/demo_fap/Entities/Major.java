@@ -4,14 +4,8 @@
  */
 package lab.training.project.demo_fap.Entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.List;
 import lombok.Data;
 import lombok.ToString;
@@ -32,11 +26,11 @@ public class Major {
     @Column(name = "major_name")
     private String majorName;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId", fetch = FetchType.EAGER)
     @ToString.Exclude //add toString to ignore error stackOverFlow
     private List<Subject> subjects;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "majorId", fetch = FetchType.EAGER)
     @ToString.Exclude //add toString to ignore error stackOverFlow
     private List<User> users;
 

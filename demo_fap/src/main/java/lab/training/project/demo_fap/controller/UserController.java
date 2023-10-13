@@ -1,16 +1,19 @@
 package lab.training.project.demo_fap.controller;
 
+import lab.training.project.demo_fap.Entities.*;
 import lab.training.project.demo_fap.Entities.Class;
-import lab.training.project.demo_fap.Entities.Role;
-import lab.training.project.demo_fap.Entities.StudentGrade;
-import lab.training.project.demo_fap.Entities.User;
 import lab.training.project.demo_fap.impl.UserDetailsImpl;
 import lab.training.project.demo_fap.service.StudentGradeService;
+import lab.training.project.demo_fap.service.SubjectService;
 import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -21,6 +24,9 @@ public class UserController {
 
     @Autowired
     StudentGradeService studentGradeService;
+
+    @Autowired
+    SubjectService subjectService;
 
     @GetMapping("/profile")
     public ModelAndView viewProfile(){
@@ -66,24 +72,33 @@ public class UserController {
         return mv;
     }
 
-    @GetMapping("/grade")
-    public ModelAndView viewGrade(){
+    @GetMapping("/grade/{subject_id}")
+    public ModelAndView viewGrade(@PathVariable int subject_id){
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
 
         ModelAndView mv = new ModelAndView();
 
+        //get user's majorId
+        Major major = user.getMajorId();
+
+        //get list of subject by majorId
+        Iterable<Subject> listSubject = subjectService.findByMajorId(major);
+
+        Optional<Subject> optionalSubject = subjectService.getBySubjectId(subject_id);
+
+        Subject subject = optionalSubject.orElse(null); // Lấy giá trị bên trong Optional hoặc trả về null nếu Optional rỗng
+//        Subject subject = optionalSubject.get();
+
         //get studentGradeId object
-        Iterable<StudentGrade> studentGrade = studentGradeService.getAllStudentGrade(user);
-
-
-        //test get studentGrade object
-        System.out.println("CLASS ID : "+studentGrade);
+        Iterable<StudentGrade> studentGrade = studentGradeService.findBySubjectId(subject);
 
         mv.setViewName("/view/grade.jsp");
 
         mv.addObject("studentGrade", studentGrade);
+
+        mv.addObject("listSubject", listSubject);
 
         return mv;
     }
