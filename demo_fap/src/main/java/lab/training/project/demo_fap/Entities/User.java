@@ -4,24 +4,13 @@
  */
 package lab.training.project.demo_fap.Entities;
 
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Set;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  *
@@ -29,7 +18,11 @@ import lombok.ToString;
  */
 @Entity
 @Table(name = "User")
-@Data
+//@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,14 +67,41 @@ public class User {
 //    @ToString.Exclude //add toString to ignore error stackOverFlow
     private Role roleId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId", fetch = FetchType.EAGER)
     private List<StudentGrade> studentGrades;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId", fetch = FetchType.EAGER)
     private List<Subject> subjects;
 
     public Major getMajorId() {
         return majorId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Class getClassId() {
+        return classId;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "classId=" + classId +
+                '}';
     }
 
     //    public int getUserId() {

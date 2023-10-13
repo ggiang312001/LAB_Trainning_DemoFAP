@@ -15,8 +15,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.List;
-import lombok.Data;
-import lombok.ToString;
+
+import lombok.*;
 
 /**
  *
@@ -24,7 +24,11 @@ import lombok.ToString;
  */
 @Entity
 @Table(name = "Subject")
-@Data
+//@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.*;
 
 /**
  *
@@ -20,7 +20,11 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "StudentGrade")
-@Data
+//@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class StudentGrade {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)

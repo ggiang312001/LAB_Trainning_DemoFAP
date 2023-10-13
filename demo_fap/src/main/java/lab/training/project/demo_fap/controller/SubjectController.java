@@ -38,6 +38,8 @@ public class SubjectController {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
 
+        System.out.println("USER: "+user);
+
         //get user's majorId
         Major major = user.getMajorId();
 
@@ -75,9 +77,6 @@ public class SubjectController {
         //get subject with majorId of user and default semester
         Iterable<Subject> listSubject;
         listSubject = subjectService.findBySemesterIdAndMajorId(semester, major);
-
-        //test listSubject
-        System.out.println("list of all subject: "+listSubject);
 
         //model view
         ModelAndView mv = new ModelAndView();

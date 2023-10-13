@@ -4,16 +4,11 @@
  */
 package lab.training.project.demo_fap.Entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.List;
-import lombok.Data;
+
+import lombok.*;
 
 /**
  *
@@ -21,7 +16,11 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "Class")
-@Data
+//@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +30,6 @@ public class Class {
     @Column(name = "class_name")
     private String className;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classId", fetch = FetchType.EAGER)
     private List<User> users;
 }
