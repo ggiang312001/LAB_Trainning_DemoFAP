@@ -30,13 +30,33 @@
             <input type="hidden" name="subjectId" value="${subject.subjectId}">
             <input type="hidden" name="classId" value="${classs.classId}">
             <table>
-                <tr>
+<!--                <tr>
                     <td><label>Student</label></td>
                     <td><input type="text" name="studentId"></td>
-                </tr>
+                </tr>-->
                 <tr>
+                    <td><label>Student</label></td>
+                    <td>
+                        <select name="studentId">
+                            <c:forEach items="${listStudent}" var="obj">
+                                <option value="${obj.userId}">${obj.username}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+<!--                <tr>
                     <td><label>Grade</label></td>
                     <td><input type="text" name="gradeId"></td>
+                </tr>-->
+                <tr>
+                    <td><label>Grade</label></td>
+                    <td>
+                        <select name="gradeId">
+                            <c:forEach items="${listGrade}" var="obj">
+                                <option value="${obj.gradeId}">${obj.gradeName}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label>Value</label></td>

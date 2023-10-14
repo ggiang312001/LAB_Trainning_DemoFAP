@@ -36,14 +36,17 @@
             <tr>
                 <th>Student ID</th>
                 <th>Student Name</th>
-                <th>Assignment 1</th>
+                <c:forEach items="${listGrade}" var="grade">
+                    <th>${grade.gradeName}</th>
+                </c:forEach>
+<!--                <th>Assignment 1</th>
                 <th>Assignment 2</th>
                 <th>Assignment 3</th>
                 <th>Progress Test 1</th>
                 <th>Progress Test 2</th>
                 <th>Group Project</th>
                 <th>Practical Exam</th>
-                <th>Final Exam</th>
+                <th>Final Exam</th>-->
                 <th>Action</th>
             </tr>
             
