@@ -22,7 +22,7 @@
         <ul>
             <c:forEach items="${listSemester}" var="item">
                 <li>
-<!--                    <a href=""<c:url value='/subject/${item.semesterId}'/>"">${item.semesterName}</a>  -->
+                    <a href="<c:url value='/subject/semester/${item.semesterId}'/>">${item.semesterName}</a>  
                 </li>
             </c:forEach>
         </ul>

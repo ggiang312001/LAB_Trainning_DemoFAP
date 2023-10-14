@@ -19,11 +19,16 @@ import org.springframework.stereotype.Service;
 public class SubjectServiceImpl implements SubjectService{
 
     @Autowired
-    private SubjectRepository SubjectRepository;
+    private SubjectRepository subjectRepository;
     
     @Override
     public List<Subject> getSubjectByLectureAndSemester(int lectureId, int semesterId) {
-        return SubjectRepository.getSubjectByLectureIdAndSemesterId(lectureId, semesterId);
+        return subjectRepository.getSubjectByLectureAndSemester(lectureId, semesterId);
+    }
+
+    @Override
+    public Subject findById(Integer subjectId) {
+        return subjectRepository.findById(subjectId).orElseThrow();
     }
     
 }

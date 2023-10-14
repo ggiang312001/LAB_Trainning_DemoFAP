@@ -5,7 +5,8 @@
 package lab.training.project.demo_fap.service;
 
 import java.util.List;
-import lab.training.project.demo_fap.Entities.Subject;
+import lab.training.project.demo_fap.Entities.StudentGrade;
+import lab.training.project.demo_fap.Entities.Class;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,8 +14,7 @@ import org.springframework.stereotype.Service;
  * @author phamminhgiang
  */
 @Service
-public interface SubjectService {
-    List<Subject> getSubjectByLectureAndSemester(int lectureId, int semesterId);
-
-    Subject findById(Integer subjectId);
+public interface StudentGradeService {
+    
+    List<StudentGrade> findByClass(int semesterId, int subjectId, int classId);
 }

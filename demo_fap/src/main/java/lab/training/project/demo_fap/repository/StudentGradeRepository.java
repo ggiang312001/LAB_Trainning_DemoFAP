@@ -5,8 +5,8 @@
 package lab.training.project.demo_fap.repository;
 
 import java.util.List;
-import java.util.Optional;
-import lab.training.project.demo_fap.Entities.Subject;
+import lab.training.project.demo_fap.Entities.StudentGrade;
+import lab.training.project.demo_fap.Entities.Class;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,12 +15,15 @@ import org.springframework.stereotype.Repository;
  *
  * @author phamminhgiang
  */
+
 @Repository
-public interface SubjectRepository extends JpaRepository<Subject, Integer>{
+public interface StudentGradeRepository extends JpaRepository<StudentGrade, Integer>{
     
-    @Query(value = "Select s from Subject s where s.teacherId.userId = ?1 and s.semesterId.semesterId = ?2")
-    List<Subject> getSubjectByLectureAndSemester(int lectureId, int semesterId);
-    
-    
+    @Query("SELECT sg FROM StudentGrade sg " +
+       "WHERE sg.subjectId.semesterId.semesterId = :semesterId " +
+       "AND sg.subjectId.subjectId = :subjectId " +
+       "AND sg.subjectId.classes = :classes")
+    List<StudentGrade> findByClass(int semesterId, int subjectId, Class classes);
     
 }
+

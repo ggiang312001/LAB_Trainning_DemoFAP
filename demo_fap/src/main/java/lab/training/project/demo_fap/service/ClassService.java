@@ -5,16 +5,17 @@
 package lab.training.project.demo_fap.service;
 
 import java.util.List;
-import lab.training.project.demo_fap.Entities.Subject;
 import org.springframework.stereotype.Service;
+import lab.training.project.demo_fap.Entities.Class;
 
 /**
  *
  * @author phamminhgiang
  */
 @Service
-public interface SubjectService {
-    List<Subject> getSubjectByLectureAndSemester(int lectureId, int semesterId);
-
-    Subject findById(Integer subjectId);
+public interface ClassService {
+    
+    List<Class> getClassByTeacherAndSemesterAndSubject(int teacherId, int semesterId, int subjectId);
+    
+    Class findById(int classId);
 }

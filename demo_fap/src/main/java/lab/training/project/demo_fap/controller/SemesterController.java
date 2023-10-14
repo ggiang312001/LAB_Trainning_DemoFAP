@@ -25,7 +25,7 @@ public class SemesterController {
     @GetMapping()
     public ModelAndView getAllSemester(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("Lecture/semester.jsp");
+        mv.setViewName("/WEB-INF/views/Lecture/semester.jsp");
 //        mv.setViewName("login.jsp");
         mv.addObject("listSemester", semesterService.getAll());
         return mv;
