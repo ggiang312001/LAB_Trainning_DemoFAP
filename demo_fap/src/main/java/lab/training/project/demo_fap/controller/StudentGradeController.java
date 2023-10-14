@@ -11,7 +11,9 @@ import lab.training.project.demo_fap.service.SemesterService;
 import lab.training.project.demo_fap.service.StudentGradeService;
 import lab.training.project.demo_fap.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,9 +48,35 @@ public class StudentGradeController {
         mv.setViewName("/WEB-INF/views/Lecture/studentGrade.jsp");
 //        mv.setViewName("login.jsp");
         mv.addObject("listStudentGrade", studentGradeService.findByClass(semesterId, subjectId, classId));
+        mv.addObject("listStudent", studentGradeService.findListStudent(semesterId, subjectId, classId));
+        mv.addObject("listGrade", studentGradeService.findListGrade(semesterId, subjectId, classId));
         mv.addObject("semester", semesterService.findById(semesterId));
         mv.addObject("subject", subjectService.findById(subjectId));
-        mv.addObject("class", classService.findById(classId));
+        mv.addObject("classs", classService.findById(classId));
+        return mv;
+    }
+    
+    @GetMapping("/add")
+    public ModelAndView getAddStudentGrades(@RequestParam(name = "semesterId", required = true) int semesterId,
+                                        @RequestParam(name = "subjectId", required = true) Integer subjectId,
+                                        @RequestParam(name = "classId", required = true) Integer classId){
+        
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/WEB-INF/views/Lecture/addGrade.jsp");
+//        mv.setViewName("login.jsp");
+//        mv.addObject("listStudentGrade", studentGradeService.findByClass(semesterId, subjectId, classId));
+//        mv.addObject("listStudent", studentGradeService.findListStudent(semesterId, subjectId, classId));
+//        mv.addObject("listGrade", studentGradeService.findListGrade(semesterId, subjectId, classId));
+//        mv.addObject("semester", semesterService.findById(semesterId));
+//        mv.addObject("subject", subjectService.findById(subjectId));
+//        mv.addObject("classs", classService.findById(classId));
+        return mv;
+    }
+    
+    @PostMapping("/add")
+    public ModelAndView getAddStudentGrades(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/WEB-INF/views/Lecture/studentGrade.jsp");
         return mv;
     }
     
