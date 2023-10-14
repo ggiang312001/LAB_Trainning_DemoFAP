@@ -3,6 +3,7 @@ package lab.training.project.demo_fap.controller;
 import lab.training.project.demo_fap.Entities.Major;
 import lab.training.project.demo_fap.Entities.Semester;
 import lab.training.project.demo_fap.Entities.Subject;
+
 import lab.training.project.demo_fap.Entities.User;
 import lab.training.project.demo_fap.impl.UserDetailsImpl;
 import lab.training.project.demo_fap.service.SemesterService;
@@ -13,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,6 +32,16 @@ public class SubjectController {
 
     @Autowired
     SemesterService semesterService;
+
+    @GetMapping("semester/{id}")
+    public ModelAndView getSubject(@PathVariable int id){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/WEB-INF/views/Lecture/subject.jsp");
+        
+        mv.addObject("listSubject", subjectService.getSubjectByLectureAndSemester(1, id));
+        mv.addObject("semester", semesterService.findById(id));
+        return mv;
+    }
 
     @GetMapping("/view/{semester_id}")
     public ModelAndView viewProfile(@PathVariable int semester_id){
@@ -87,7 +99,5 @@ public class SubjectController {
 
         //add Object listSemester
         mv.addObject("listSemester", listSemester);
-
-        return mv;
     }
 }

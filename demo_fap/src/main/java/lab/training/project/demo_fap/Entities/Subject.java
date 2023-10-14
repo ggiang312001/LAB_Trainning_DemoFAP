@@ -6,7 +6,9 @@ package lab.training.project.demo_fap.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import lombok.*;
 
@@ -104,4 +106,7 @@ public class Subject {
     public void setStudentGrades(List<StudentGrade> studentGrades) {
         this.studentGrades = studentGrades;
     }
+    
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "subjects")
+    private Set<Class> classes = new HashSet<>();
 }

@@ -5,8 +5,9 @@
 package lab.training.project.demo_fap.Entities;
 
 import jakarta.persistence.*;
-
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import lombok.*;
 
@@ -32,4 +33,10 @@ public class Class {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "classId", fetch = FetchType.EAGER)
     private List<User> users;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+        @JoinTable(name = "Subject_Class",
+        joinColumns = @JoinColumn(name = "class_id"),
+        inverseJoinColumns = @JoinColumn(name = "subject_id"))
+    private Set<Subject> subjects = new HashSet<>();
 }
