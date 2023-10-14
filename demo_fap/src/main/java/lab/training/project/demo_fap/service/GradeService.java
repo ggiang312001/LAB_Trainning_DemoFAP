@@ -5,14 +5,14 @@
 package lab.training.project.demo_fap.service;
 
 import java.util.List;
-import lab.training.project.demo_fap.Entities.User;
+import lab.training.project.demo_fap.Entities.Grade;
 import org.springframework.stereotype.Service;
 
 /**
  *
- * @author kennybk
+ * @author phamminhgiang
  */
 @Service
-public interface UserService {
-    List<User> getStudentByClass(int classId);
+public interface GradeService {
+    List<Grade> getAll();
 }

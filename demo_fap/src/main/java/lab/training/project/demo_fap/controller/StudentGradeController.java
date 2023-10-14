@@ -8,9 +8,11 @@ import java.util.List;
 import lab.training.project.demo_fap.DTOs.Request.CreateStudentGradeRequest;
 import lab.training.project.demo_fap.Entities.StudentGrade;
 import lab.training.project.demo_fap.service.ClassService;
+import lab.training.project.demo_fap.service.GradeService;
 import lab.training.project.demo_fap.service.SemesterService;
 import lab.training.project.demo_fap.service.StudentGradeService;
 import lab.training.project.demo_fap.service.SubjectService;
+import lab.training.project.demo_fap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +43,12 @@ public class StudentGradeController {
     @Autowired
     private SubjectService subjectService;
     
+    @Autowired
+    private GradeService gradeService;
+    
+    @Autowired
+    private UserService userService;
+    
     @GetMapping()
     public ModelAndView getStudentGrades(@RequestParam(name = "semesterId", required = true) int semesterId,
                                         @RequestParam(name = "subjectId", required = true) Integer subjectId,
@@ -68,6 +76,9 @@ public class StudentGradeController {
         mv.addObject("semester", semesterService.findById(semesterId));
         mv.addObject("subject", subjectService.findById(subjectId));
         mv.addObject("classs", classService.findById(classId));
+        
+        mv.addObject("listGrade", gradeService.getAll());
+        mv.addObject("listStudent", userService.getStudentByClass(classId));
         return mv;
     }
     

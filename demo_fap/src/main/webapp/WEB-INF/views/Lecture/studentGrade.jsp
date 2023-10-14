@@ -55,13 +55,12 @@
                     <td>${student.userCode}</td>
                     <td>${student.username}</td>
                     <c:forEach items="${listGrade}" var="grade">
+                        
                         <c:forEach items="${listStudentGrade}" var="studentgrade">
-                            <c:if test="${studentgrade.studentId.userId == student.userId && studentgrade.gradeId.gradeId == grade.gradeId && studentgrade.value!= null}">
+                            <c:if test="${studentgrade.studentId.userId == student.userId && studentgrade.gradeId.gradeId == grade.gradeId }">
                                 <td>${studentgrade.value}</td>
                             </c:if>
-                            <c:if test="${studentgrade.studentId.userId != student.userId && studentgrade.gradeId.gradeId != grade.gradeId && studentgrade.value== null}">
-                                <td></td>
-                            </c:if>
+                            
                         </c:forEach>
                     </c:forEach>
                     <td><a>Edit</a></td>           
