@@ -38,7 +38,7 @@
         </div>
 
 
-        <div class="col-bg-11 p-1 text-white container-fluid">
+        <div class="col-bg-11 p-1 text-white container-fluid  shadow-lg">
                 <table class="table table-borderless table-hover table-border">
                     <tr class="table-secondary">
                         <th>subject code</th>

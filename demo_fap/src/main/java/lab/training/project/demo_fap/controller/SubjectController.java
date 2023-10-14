@@ -35,22 +35,27 @@ public class SubjectController {
 
     @GetMapping("semester/{id}")
     public ModelAndView getSubject(@PathVariable int id){
+        //get user by userId
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = ((UserDetailsImpl)principal).getUser();
+
+        int userId = user.getUserId();
+
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/WEB-INF/views/Lecture/subject.jsp");
         
-        mv.addObject("listSubject", subjectService.getSubjectByLectureAndSemester(1, id));
+        mv.addObject("listSubject", subjectService.getSubjectByLectureAndSemester(userId, id));
+
         mv.addObject("semester", semesterService.findById(id));
         return mv;
     }
 
     @GetMapping("/view/{semester_id}")
-    public ModelAndView viewProfile(@PathVariable int semester_id){
+    public ModelAndView viewProfile(@PathVariable Integer semester_id){
 
         //get user by userId
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = ((UserDetailsImpl)principal).getUser();
-
-        System.out.println("USER: "+user);
 
         //get user's majorId
         Major major = user.getMajorId();
@@ -61,11 +66,8 @@ public class SubjectController {
         //set default semester
         Semester semester = new Semester();
 
-        //test path semester_id
-        System.out.println("PATH SEMESTER_ID: "+semester_id);
-
         //check if semester_id equal 0 -> set default semesterId
-        if(semester_id == 0){
+        if(semester_id == null){
             //create a list of semester
             List<Semester> semesterList = new ArrayList<>();
 
@@ -99,5 +101,7 @@ public class SubjectController {
 
         //add Object listSemester
         mv.addObject("listSemester", listSemester);
+
+        return mv;
     }
 }

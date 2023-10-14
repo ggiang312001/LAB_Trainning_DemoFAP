@@ -8,6 +8,7 @@ import lab.training.project.demo_fap.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,16 @@ public class SubjectServiceImp implements SubjectService {
     @Override
     public Optional<Subject> getBySubjectId(int subjectId) {
         return subjectRepository.findById(subjectId);
+    }
+
+
+    @Override
+    public List<Subject> getSubjectByLectureAndSemester(int lectureId, int semesterId) {
+        return subjectRepository.getSubjectByLectureAndSemester(lectureId, semesterId);
+    }
+
+    @Override
+    public Subject findById(Integer subjectId) {
+        return subjectRepository.findById(subjectId).orElseThrow();
     }
 }

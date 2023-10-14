@@ -26,7 +26,7 @@
 
         <div class="container">
             <div class="mt-4 p-5 bg-secondary text-white rounded">
-                        <h1>Subject</h1>
+                        <h1>Grade</h1>
             </div>
             <div class="btn-group p-2">
                 <c:forEach items="${listSubject}" var="subject">
@@ -37,7 +37,7 @@
             <br>
 
 
-            <div class="col-bg-11 p-1 text-white container-fluid">
+            <div class="col-bg-11 p-1 text-white container-fluid shadow-lg">
                     <table class="table table-borderless table-hover table-border">
                                         <tr class="table-secondary">
                                             <th>grade category</th>

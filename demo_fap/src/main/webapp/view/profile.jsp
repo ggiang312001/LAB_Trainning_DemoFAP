@@ -19,9 +19,7 @@
 
     <title>User Profile</title>
     <style>
-        body {
-            background: rgb(99, 39, 120)
-        }
+
 
         .form-control:focus {
             box-shadow: none;
@@ -70,12 +68,12 @@
 <body>
     <jsp:include page="bar.jsp" />
 
-    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="container rounded bg-white mt-5 mb-5 shadow-lg">
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        src="${user.img}">
                         <span class="font-weight-bold">${user.username}</span>
                         <span class="text-black-50">${user.email}</span>
                         <span> </span>

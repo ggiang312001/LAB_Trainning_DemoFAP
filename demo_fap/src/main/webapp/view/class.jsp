@@ -19,16 +19,18 @@
 
         <title>Class</title>
 
+
+
     </head>
     <body>
 
     <jsp:include page="bar.jsp" />
-    <div class="container">
+    <div class="container ">
         <div class="mt-4 p-5 bg-secondary text-white rounded">
             <h1>Class member</h1>
         </div>
 
-        <div class="col-bg-11 p-5 text-white">
+        <div class="col-bg-11 p-5 text-white shadow-lg">
                 <table class="table table-borderless table-hover table-striped ">
                                     <tr class="table-secondary">
                                         <th>img</th>

@@ -32,6 +32,9 @@
       <form class="d-flex" role="search">
         <a class="btn btn-outline-success text-white" href="http://localhost:8080/fap/user/profile">User Profile</a>
       </form>
+      <form class="d-flex" role="search">
+              <a class="btn btn-outline-danger m-2 text-white" href="http://localhost:8080/fap/logout">Logout</a>
+      </form>
     </div>
   </div>
 </nav>

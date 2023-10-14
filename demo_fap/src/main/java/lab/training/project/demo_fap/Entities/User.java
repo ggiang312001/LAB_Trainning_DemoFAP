@@ -73,6 +73,14 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId", fetch = FetchType.EAGER)
     private List<Subject> subjects;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public Major getMajorId() {
         return majorId;
     }

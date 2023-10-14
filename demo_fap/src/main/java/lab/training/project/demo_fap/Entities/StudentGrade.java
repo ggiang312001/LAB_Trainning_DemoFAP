@@ -46,6 +46,43 @@ public class StudentGrade {
    @JoinColumn(name = "subject_id", referencedColumnName = "subject_id")
    private Subject subjectId;
 
+   public int getStudentGradeId() {
+      return studentGradeId;
+   }
 
+   public void setStudentGradeId(int studentGradeId) {
+      this.studentGradeId = studentGradeId;
+   }
 
+   public User getStudentId() {
+      return studentId;
+   }
+
+   public void setStudentId(User studentId) {
+      this.studentId = studentId;
+   }
+
+   public Grade getGradeId() {
+      return gradeId;
+   }
+
+   public void setGradeId(Grade gradeId) {
+      this.gradeId = gradeId;
+   }
+
+   public float getValue() {
+      return value;
+   }
+
+   public void setValue(float value) {
+      this.value = value;
+   }
+
+   public Subject getSubjectId() {
+      return subjectId;
+   }
+
+   public void setSubjectId(Subject subjectId) {
+      this.subjectId = subjectId;
+   }
 }
