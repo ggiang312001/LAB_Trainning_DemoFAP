@@ -25,5 +25,5 @@ public interface StudentGradeService {
     
     List<Grade> findListGrade(int semesterId, int subjectId, int classId);
     
-    StudentGrade addStudentGrade(CreateStudentGradeRequest request);
+    StudentGrade addStudentGrade(CreateStudentGradeRequest request, int subjectId);
 }

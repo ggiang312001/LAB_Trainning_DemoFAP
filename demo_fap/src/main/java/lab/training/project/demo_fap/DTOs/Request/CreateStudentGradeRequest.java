@@ -17,7 +17,6 @@ import lombok.*;
 @AllArgsConstructor
 public class CreateStudentGradeRequest {
     private int studentId;
-    private int subjectId;
     private int gradeId;
     private float value;
 }

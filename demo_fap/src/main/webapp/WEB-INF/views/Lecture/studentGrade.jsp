@@ -56,7 +56,7 @@
                             <c:if test="${studentgrade.studentId.userId == student.userId && studentgrade.gradeId.gradeId == grade.gradeId && studentgrade.value!= null}">
                                 <td>${studentgrade.value}</td>
                             </c:if>
-                            <c:if test="${studentgrade.studentId.userId == student.userId && studentgrade.gradeId.gradeId == grade.gradeId && studentgrade.value== null}">
+                            <c:if test="${studentgrade.studentId.userId != student.userId && studentgrade.gradeId.gradeId != grade.gradeId && studentgrade.value== null}">
                                 <td></td>
                             </c:if>
                         </c:forEach>

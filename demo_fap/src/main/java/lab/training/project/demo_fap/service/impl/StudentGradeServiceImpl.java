@@ -60,12 +60,12 @@ public class StudentGradeServiceImpl implements StudentGradeService{
     }
 
     @Override
-    public StudentGrade addStudentGrade(CreateStudentGradeRequest request) {
+    public StudentGrade addStudentGrade(CreateStudentGradeRequest request, int subjectId) {
         StudentGrade st = new StudentGrade();
         st.setStudentId(userRepository.findById(request.getStudentId()).orElseThrow());
-        st.setSubjectId(subjectRepository.findById(request.getSubjectId()).orElseThrow());
-        st.setSubjectId(subjectRepository.findById(request.getSubjectId()).orElseThrow());
-        st.setSubjectId(subjectRepository.findById(request.getSubjectId()).orElseThrow());
+        st.setSubjectId(subjectRepository.findById(subjectId).orElseThrow());
+        st.setGradeId(gradeRepository.findById(request.getGradeId()).orElseThrow());
+        st.setValue(request.getValue());
         return studentGradeRepository.save(st);
     }
     

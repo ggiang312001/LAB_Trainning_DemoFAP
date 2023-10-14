@@ -25,8 +25,10 @@
         <br> 
         <h3>${classs.className}</h3>
         <br><!-- comment -->
-        <form action="studentGrades/add" method="post">
-            <input type="hidden" name="subjectId" value="">
+        <form action="studentGrades/addGrade" >
+            <input type="hidden" name="semesterId" value="${semester.semesterId}">
+            <input type="hidden" name="subjectId" value="${subject.subjectId}">
+            <input type="hidden" name="classId" value="${classs.classId}">
             <table>
                 <tr>
                     <td><label>Student</label></td>
